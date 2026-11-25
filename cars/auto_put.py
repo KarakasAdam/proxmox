@@ -8,7 +8,11 @@ updated_car = {
     'production_year': '1963',
     'convertible': False,
 }
-reply = requests.put(url, headers=h, data=json.dumps(updated_car))
+try:
+	reply = requests.put(url, headers=h, data=json.dumps(updated_car))
+except:
+	print("A szerver nem elerheto")
+	exit()
 print(reply.status_code)
 print(reply.headers)
 print(reply.text)

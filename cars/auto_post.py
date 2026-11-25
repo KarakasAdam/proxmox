@@ -11,7 +11,10 @@ newcar = {
     'production_year': '2007',
     'convertible': False,
 }
-
-reply = requests.post(url, headers=h, data=json.dumps(newcar))
+try:
+	reply = requests.post(url, headers=h, data=json.dumps(newcar))
+except:
+	print("A szerver nem elerheto")
+	exit()
 print(reply.status_code)
 print(reply.text)
